@@ -3,9 +3,9 @@ package com.na.Rating.entity;
 public class AverageRatingResponse {
 
     private String user_id;
-    private int rating;
+    private String rating;
 
-    public AverageRatingResponse(String user_id, int rating) {
+    public AverageRatingResponse(String user_id, String rating) {
         this.user_id = user_id;
         this.rating = rating;
     }
@@ -18,11 +18,11 @@ public class AverageRatingResponse {
         this.user_id = user_id;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 }

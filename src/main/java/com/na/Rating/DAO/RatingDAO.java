@@ -29,7 +29,7 @@ public class RatingDAO {
     }
 
     public AverageRatingResponse getAverageRating(String user_id) {
-        int rating = 0;
+        float rating = 0;
         int flag = 0;
         List<Rating> ratingList = ratingRepository.findAll();
         if (ratingList.size() != 0) {
@@ -41,7 +41,7 @@ public class RatingDAO {
             }
             rating=rating/flag;
         }
-        return new AverageRatingResponse(user_id, rating);
+        return new AverageRatingResponse(user_id, String.format("%.1f", rating));
     }
 
     public List<Rating> getRatingBasedOnEmail(String user_id) {
