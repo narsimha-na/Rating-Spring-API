@@ -30,13 +30,16 @@ public class RatingDAO {
 
     public AverageRatingResponse getAverageRating(String user_id) {
         int rating = 0;
+        int flag = 0;
         List<Rating> ratingList = ratingRepository.findAll();
         if (ratingList.size() != 0) {
             for (Rating value : ratingList) {
                 if (value.getEmail().equals(user_id)) {
                     rating = rating + value.getRating();
+                    flag++;
                 }
             }
+            rating=rating/flag;
         }
         return new AverageRatingResponse(user_id, rating);
     }
